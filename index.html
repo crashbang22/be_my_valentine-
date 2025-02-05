@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine? 💖</title>
+    <style>
+        body {
+            background-color: #ffe6f2;
+            text-align: center;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        h1 {
+            color: #ff3366;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .btn {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        .yes-btn {
+            background-color: #ff4d79;
+            color: white;
+        }
+        .no-btn {
+            background-color: #ff9999;
+            color: white;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Will You Be My Valentine? 💕</h1>
+        <div class="buttons">
+            <button class="btn yes-btn" onclick="alert('YAY! 💖 Can’t wait!')">Yes</button>
+            <button class="btn no-btn" onclick="moveButton()">No</button>
+        </div>
+    </div>
+
+    <script>
+        let noButton = document.querySelector('.no-btn');
+        let yesButton = document.querySelector('.yes-btn');
+        let noMessages = ["I'm dead", "Please", "Please pookie", "You sure? 😢", "Think again!", "Just one more chance!" ];
+        let clickCount = 0;
+
+        function moveButton() {
+            clickCount++;
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+            
+            noButton.textContent = noMessages[clickCount % noMessages.length];
+            yesButton.style.transform = `scale(${1 + clickCount * 0.2})`;
+        }
+    </script>
+</body>
+</html>
