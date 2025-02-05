@@ -41,9 +41,9 @@
 </head>
 <body>
     <div class="container">
-        <h1>Will You Be My Valentine? 💕</h1>
-        <div class="buttons">
-            <button class="btn yes-btn" onclick="alert('YAY! 💖 Can’t wait!')">Yes</button>
+        <h1 id="question">Will You Be My Valentine? 💕</h1>
+        <div class="buttons" id="buttons">
+            <button class="btn yes-btn" onclick="showLoveMessage()">Yes</button>
             <button class="btn no-btn" onclick="moveButton()">No</button>
         </div>
     </div>
@@ -63,6 +63,11 @@
             
             noButton.textContent = noMessages[clickCount % noMessages.length];
             yesButton.style.transform = `scale(${1 + clickCount * 0.2})`;
+        }
+
+        function showLoveMessage() {
+            document.getElementById("question").innerText = "YAY! 💖 You made my heart so happy! Can't wait to spend Valentine's with you! 💕";
+            document.getElementById("buttons").style.display = "none";
         }
     </script>
 </body>
